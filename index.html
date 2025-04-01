@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>获取完整资料</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .qr-code {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #07C160;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #06AD56;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>感谢您的关注</h2>
+        <p>请点击下方按钮查看完整联系方式</p>
+        
+        <button class="btn" onclick="showQRCode()">显示联系方式</button>
+        
+        <div id="qrContainer" class="qr-code" style="display:none;">
+            <p>请使用微信扫描下方二维码添加</p>
+            <img id="qrImage" src="" alt="微信二维码" width="200">
+            <p>或搜索微信号: <span id="wechatId"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // 这里可以设置您的微信二维码和微信号
+        const wechatInfo = {
+            qrImageUrl: 'https://yourdomain.com/path/to/wechat-qr.png',
+            wechatId: 'YourWeChatID'
+        };
+
+        function showQRCode() {
+            document.getElementById('qrImage').src = wechatInfo.qrImageUrl;
+            document.getElementById('wechatId').textContent = wechatInfo.wechatId;
+            document.getElementById('qrContainer').style.display = 'block';
+            
+            // 可以添加统计代码，记录用户点击
+            // trackUserAction();
+        }
+    </script>
+</body>
+</html>
